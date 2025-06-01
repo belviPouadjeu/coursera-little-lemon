@@ -1,10 +1,11 @@
 import { HeroSection } from '../components';
+import { Highligths } from '../components';
 
 const Home = () => {
     return (
         <main className='home-page padding'>
             <HeroSection />
-            {/* You'll likely add more sections here later */}
+            <Highligths />
         </main>
     );
 };
