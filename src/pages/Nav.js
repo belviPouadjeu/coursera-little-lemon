@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import logo from '../assets/images/Logo.svg';
 import hamburgerMenu from '../assets/images/icon _hamburger.svg';
+import homeIcon from '../assets/images/home_icon.svg'; 
 import './Nav.css';
 
 const Nav = () => {
@@ -27,7 +28,15 @@ const Nav = () => {
                     <img src={hamburgerMenu} alt="Menu" />
                 </div>
                 <ul className={menuOpen ? "menu-open" : ""}>
-                    <li><NavLink to="/" onClick={closeMenu} className={({ isActive }) => isActive ? "active-link" : ""}>Home</NavLink></li>
+                    <li>
+                        <NavLink
+                            to="/" onClick={closeMenu}
+                            className={({ isActive }) => isActive ? "active-link" : ""}
+                        >
+                            <img src={homeIcon} alt="home" className='home-icon' />
+                            Home
+                        </NavLink>
+                    </li>
                     <li><NavLink to="/about" onClick={closeMenu} className={({ isActive }) => isActive ? "active-link" : ""}>About Us</NavLink></li>
                     <li><NavLink to="/menu" onClick={closeMenu} className={({ isActive }) => isActive ? "active-link" : ""}>Menu</NavLink></li>
                     <li><NavLink to="/reservation" onClick={closeMenu} className={({ isActive }) => isActive ? "active-link" : ""}>Reservation</NavLink></li>

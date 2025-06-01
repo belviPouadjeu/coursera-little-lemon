@@ -1,12 +1,11 @@
-
-import React from 'react';
+import { HeroSection } from '../components';
 
 const Home = () => {
     return (
-        <div>
-        <h1>Homepage</h1>
-        <p>Welcome to our website!</p>
-        </div>
+        <main className='home-page padding'>
+            <HeroSection />
+            {/* You'll likely add more sections here later */}
+        </main>
     );
 };
 
