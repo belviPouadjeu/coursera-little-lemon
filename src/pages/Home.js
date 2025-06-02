@@ -1,6 +1,7 @@
 import { HeroSection } from '../components';
 import { Highligths } from '../components';
 import { Testimonials } from '../components';
+import About from './About';
 
 const Home = () => {
     return (
@@ -8,6 +9,7 @@ const Home = () => {
             <HeroSection />
             <Highligths />
             <Testimonials />
+            <About />
         </main>
     );
 };

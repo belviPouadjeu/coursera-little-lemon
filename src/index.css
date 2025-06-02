@@ -667,28 +667,28 @@ footer{
 }
 
 .form-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-   transition: box-shadow 0.3s ease;
-  /* background-color: #495e57; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    transition: box-shadow 0.3s ease;
+    /* background-color: #495e57; */
 }
 
 .form-columns:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .form-left,
 .form-right {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .booking-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 .booking-container .booking-header{
@@ -700,107 +700,107 @@ footer{
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .input-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 0.5rem;
-  vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+    vertical-align: middle;
 }
 
 label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
 input,
 select {
-  padding: 0.75rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
 }
 
 input.valid,
 select.valid {
-  border-color: green;
+    border-color: green;
 }
 
 input.invalid,
 select.invalid {
-  border-color: red;
+    border-color: red;
 }
 
 .radio-group {
-  display: flex;
-  gap: 1rem;
+    display: flex;
+    gap: 1rem;
 }
 
 .radio-option {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .radio-option input[type='radio'] {
-  transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .error-message {
-  color: red;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
 }
 
 .submit-btn {
-  margin-top: 2rem;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  border: none;
-  background-color: #ccc;
-  color: #fff;
-  cursor: not-allowed;
-  border-radius: 6px;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #ccc;
+    color: #fff;
+    cursor: not-allowed;
+    border-radius: 6px;
 }
 
 .submit-btn.active {
-  background-color: #28a745;
-  cursor: pointer;
+    background-color: #28a745;
+    cursor: pointer;
 }
 
 .submit-btn.disabled {
-  background-color: #ccc;
+    background-color: #ccc;
 }
 
 input.invalid,
 select.invalid {
-  border: 2px solid red;
+    border: 2px solid red;
 }
 
 input.valid,
 select.valid {
-  border: 2px solid green;
+    border: 2px solid green;
 }
 
 .error-message {
-  color: red;
-  font-size: 0.9rem;
-  margin-top: 0.25rem;
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
 }
 
 .submit-btn {
-  padding: 1rem;
-  margin-top: 2rem;
-  cursor: pointer;
+    padding: 1rem;
+    margin-top: 2rem;
+    cursor: pointer;
 }
 
 .submit-btn.disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 .submit-btn.active {
@@ -870,4 +870,150 @@ select.valid {
     color: white;
     border-radius: 5px;
     cursor: pointer;
+}
+
+
+/* ABOUT CSS */
+/* ABOUT CSS */
+.about-us {
+    margin: 4rem 0 5rem;
+    padding: 0 1rem;
+}
+
+.about-us-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 72rem;
+    padding: 0 1rem;
+    gap: 2rem;
+}
+
+.about-us-detail {
+    font-size: 18px;
+    font-weight: 500;
+    max-width: 500px;
+}
+
+.about-us-detail h2 {
+    color: #495e57;
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+
+.about-us-detail p {
+    letter-spacing: .2px;
+    line-height: 1.8rem;
+}
+
+.about-us-img {
+    position: relative;
+    width: 50%;
+    min-width: 300px;
+    height: 400px;
+}
+
+.about-us-img :first-child {
+    position: absolute;
+    right: 50%;
+    top: 20px;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.about-us-img :last-child {
+    position: absolute;
+    right: 0;
+    top: 100px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.about-us-img img {
+    border-radius: 16px;
+    display: block;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.about-us-img img:hover {
+    transform: scale(1.05);
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 992px) {
+    .about-us-img {
+        width: 40%;
+        min-width: 250px;
+    }
+    
+    .about-us-img img {
+        height: 250px;
+        width: 200px;
+    }
+    
+    .about-us-img :first-child {
+        right: 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-container {
+        flex-direction: column;
+    }
+    
+    .about-us-detail {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 16px;
+    }
+    
+    .about-us-detail h2 {
+        font-size: 32px;
+    }
+    
+    .about-us-img {
+        width: 100%;
+        height: 350px;
+        margin: 0 auto;
+    }
+    
+    .about-us-img :first-child {
+        left: 50%;
+        transform: translateX(-100%);
+        top: 0;
+    }
+    
+    .about-us-img :last-child {
+        left: 50%;
+        top: 50px;
+    }
+    
+    .about-us-img img {
+        height: 220px;
+        width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us-img {
+        height: 300px;
+    }
+    
+    .about-us-img img {
+        height: 180px;
+        width: 150px;
+    }
+    
+    .about-us-img :first-child {
+        left: 40%;
+    }
+    
+    .about-us-img :last-child {
+        left: 60%;
+    }
 }
