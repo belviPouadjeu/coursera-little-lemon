@@ -1,8 +1,10 @@
-import React from 'react'
+import { BookingForm } from "../components"
 
 const Reservation = () => {
     return (
-        <main className='home-reservation'>Reservation</main>
+        <main className='home-reservation'>
+            <BookingForm  />
+        </main>
     )
 }
 
