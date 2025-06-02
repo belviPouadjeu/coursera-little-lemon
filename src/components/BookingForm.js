@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import wine from '../assets/images/wine-glasses.png';
 import dishIcon from '../assets/images/dish_icon.svg';
 import timeIcon from '../assets/images/time.svg';
+import imageOne from '../assets/images/image_one.jpg';
+import imageTwo from '../assets/images/image_two.jpg';
+import imageThree from '../assets/images/image_three.jpg';
 
 const BookingForm = () => {
   const [date, setDate] = useState('');
@@ -229,6 +232,13 @@ const BookingForm = () => {
 
             </div>
         </div>
+
+        <div className="image-grid">
+          <img src={imageThree} alt="Ambiance 3" />
+          <img src={imageTwo} alt="Ambiance 2" />
+          <img src={imageOne} alt="Ambiance 1" />
+        </div>
+
 
         <button
           type="submit"

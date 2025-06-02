@@ -813,15 +813,12 @@ h1 {
     width: 100%;
 } */
 
-.home-reservation {
-    /* max-width: 75rem; */
+/* .home-reservation {
+
     width: 100%;
     min-height: 100vh;
     background-color: #495E57;
-    /* display: flex;
-    flex-direction: column;
-    padding: 0 1rem; */
-}
+} */
 
 .form-columns {
   display: grid;
@@ -956,6 +953,20 @@ select.valid {
   color: white;
 }
 
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 200px; 
+  object-fit: cover; 
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
 
 
