@@ -172,7 +172,7 @@ const BookingForm = () => {
 
           <div className="form-right">
             <div className="form-group">
-              
+            
               <div className="radio-group">
                 <label className={`radio-option ${seating === 'outdoor' ? 'selected' : ''}`}>
                   <span>Outdoor</span>
