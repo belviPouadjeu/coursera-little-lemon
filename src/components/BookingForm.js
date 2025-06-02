@@ -6,7 +6,7 @@ import timeIcon from '../assets/images/time.svg';
 const BookingForm = () => {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
-  const [guests, setGuests] = useState(1);
+  const [guests, setGuests] = useState('');
   const [occasion, setOccasion] = useState('');
   const [seating, setSeating] = useState('');
   const [touched, setTouched] = useState({
@@ -19,20 +19,16 @@ const BookingForm = () => {
 
   const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 
+  // Load data from localStorage
   useEffect(() => {
-    const savedDate = localStorage.getItem('reservation-date');
-    const savedTime = localStorage.getItem('reservation-time');
-    const savedGuests = localStorage.getItem('reservation-guests');
-    const savedOccasion = localStorage.getItem('reservation-occasion');
-    const savedSeating = localStorage.getItem('reservation-seating');
-
-    if (savedDate) setDate(savedDate);
-    if (savedTime) setTime(savedTime);
-    if (savedGuests) setGuests(Number(savedGuests));
-    if (savedOccasion) setOccasion(savedOccasion);
-    if (savedSeating) setSeating(savedSeating);
+    setDate(localStorage.getItem('reservation-date') || '');
+    setTime(localStorage.getItem('reservation-time') || '');
+    setGuests(localStorage.getItem('reservation-guests') || '');
+    setOccasion(localStorage.getItem('reservation-occasion') || '');
+    setSeating(localStorage.getItem('reservation-seating') || '');
   }, []);
 
+  // Save data to localStorage
   useEffect(() => {
     localStorage.setItem('reservation-date', date);
     localStorage.setItem('reservation-time', time);
@@ -45,7 +41,7 @@ const BookingForm = () => {
     switch (field) {
       case 'date': return !!value;
       case 'time': return !!value;
-      case 'guests': return value >= 1 && value <= 10;
+      case 'guests': return Number(value) >= 1 && Number(value) <= 10;
       case 'occasion': return !!value;
       case 'seating': return !!value;
       default: return false;
@@ -73,7 +69,6 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setTouched({
       date: true,
       time: true,
@@ -83,7 +78,7 @@ const BookingForm = () => {
     });
 
     if (!isFormValid()) {
-      alert('Please fill all required fields correctly');
+      alert('Please fill all required fields correctly.');
       return;
     }
 
@@ -93,16 +88,17 @@ const BookingForm = () => {
   return (
     <div className="booking-container">
       <div className="booking-header">
-        <h1>Make a Reservation</h1>
+        <h1>Reservation</h1>
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='form'>
         <div className="form-columns">
           <div className="form-left">
             {/* Seating */}
             <div className="form-group">
               <div className="radio-group">
                 <label className={`radio-option ${seating === 'indoor' ? 'selected' : ''}`}>
+                  <span>Indoor</span>
                   <input
                     type="radio"
                     name="seating"
@@ -110,15 +106,15 @@ const BookingForm = () => {
                     checked={seating === 'indoor'}
                     onChange={(e) => setSeating(e.target.value)}
                     onBlur={() => handleBlur('seating')}
-                    className={getInputClass('seating', seating)}
                   />
-                  <span>Indoor</span>
                 </label>
               </div>
+              
               {touched.seating && !seating && (
                 <p className="error-message">Please select a seating option</p>
               )}
             </div>
+
             {/* Date */}
             <div className="form-group">
               <label htmlFor="res-date">Date</label>
@@ -130,6 +126,7 @@ const BookingForm = () => {
                 onBlur={() => handleBlur('date')}
                 className={getInputClass('date', date)}
                 min={new Date().toISOString().split('T')[0]}
+                required
               />
               {touched.date && !date && (
                 <p className="error-message">Please select a date</p>
@@ -148,6 +145,7 @@ const BookingForm = () => {
                 onChange={(e) => setOccasion(e.target.value)}
                 onBlur={() => handleBlur('occasion')}
                 className={getInputClass('occasion', occasion)}
+                required
               >
                 <option value="">Select occasion</option>
                 <option value="Birthday">Birthday</option>
@@ -163,8 +161,10 @@ const BookingForm = () => {
 
           <div className="form-right">
             <div className="form-group">
+              
               <div className="radio-group">
                 <label className={`radio-option ${seating === 'outdoor' ? 'selected' : ''}`}>
+                  <span>Outdoor</span>
                   <input
                     type="radio"
                     name="seating"
@@ -172,16 +172,15 @@ const BookingForm = () => {
                     checked={seating === 'outdoor'}
                     onChange={(e) => setSeating(e.target.value)}
                     onBlur={() => handleBlur('seating')}
-                    className={getInputClass('seating', seating)}
                   />
-                  <span>Outdoor</span>
-                </label> 
+                </label>
               </div>
               {touched.seating && !seating && (
                 <p className="error-message">Please select a seating option</p>
               )}
             </div>
-             
+
+            {/* Time */}
             <div className="form-group">
               <label htmlFor="res-time">
                 <img src={timeIcon} alt="Time" className="input-icon" />
@@ -193,6 +192,7 @@ const BookingForm = () => {
                 onChange={(e) => setTime(e.target.value)}
                 onBlur={() => handleBlur('time')}
                 className={getInputClass('time', time)}
+                required
               >
                 <option value="">Select time</option>
                 {availableTimes.map((t) => (
@@ -202,34 +202,38 @@ const BookingForm = () => {
               {touched.time && !time && (
                 <p className="error-message">Please select a time</p>
               )}
-            </div>
+              </div>
 
             {/* Guests */}
             <div className="form-group">
               <label htmlFor="guests">
                 <img src={dishIcon} alt="Guests" className="input-icon" />
-                Number of Guests
+                Number of Diners
               </label>
               <input
                 type="number"
                 id="guests"
                 value={guests}
-                onChange={(e) => setGuests(Number(e.target.value))}
+                onChange={(e) => setGuests(e.target.value)}
                 onBlur={() => handleBlur('guests')}
                 className={getInputClass('guests', guests)}
                 min="1"
                 max="10"
+                required
+                placeholder=" No. of Diners"
               />
-              {touched.guests && (guests < 1 || guests > 10) && (
-                <p className="error-message">Please enter between 1 and 10 guests</p>
+              {touched.guests && (!guests || guests < 1 || guests > 10) && (
+                <p className="error-message">Enter a number between 1 and 10</p>
               )}
             </div>
-          </div>
+
+            </div>
         </div>
 
         <button
           type="submit"
           className={`submit-btn ${isFormValid() ? 'active' : 'disabled'}`}
+          disabled={!isFormValid()}
         >
           Confirm Reservation
         </button>

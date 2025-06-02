@@ -808,6 +808,20 @@ h1 {
     max-height: 450px;
 } */
 
+/* .booking-container{
+    background-color: #495E57;
+    width: 100%;
+} */
+
+.home-reservation {
+    /* max-width: 75rem; */
+    width: 100%;
+    min-height: 100vh;
+    background-color: #495E57;
+    /* display: flex;
+    flex-direction: column;
+    padding: 0 1rem; */
+}
 
 .form-columns {
   display: grid;
@@ -909,4 +923,39 @@ select.invalid {
 .submit-btn.disabled {
   background-color: #ccc;
 }
+
+input.invalid,
+select.invalid {
+  border: 2px solid red;
+}
+
+input.valid,
+select.valid {
+  border: 2px solid green;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.submit-btn {
+  padding: 1rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.submit-btn.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.submit-btn.active {
+  background-color: #28a745;
+  color: white;
+}
+
+
+
 
