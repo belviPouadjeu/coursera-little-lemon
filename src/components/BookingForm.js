@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import wine from '../assets/images/wine-glasses.png';
 import dishIcon from '../assets/images/dish_icon.svg';
@@ -7,6 +8,7 @@ import imageTwo from '../assets/images/image_two.jpg';
 import imageThree from '../assets/images/image_three.jpg';
 
 const BookingForm = () => {
+  const navigate = useNavigate();
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState('');
@@ -70,26 +72,32 @@ const BookingForm = () => {
     return validateField(field, value) ? 'valid' : 'invalid';
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleSubmit = (e) => {
+  e.preventDefault();
+
+    // Marquer tous les champs comme "touchés" pour afficher les messages d'erreur si besoin
     setTouched({
       date: true,
       time: true,
       guests: true,
       occasion: true,
-      seating: true
+      seating: true,
     });
 
+
+    // Validation du formulaire
     if (!isFormValid()) {
       alert('Please fill all required fields correctly.');
       return;
     }
 
-    alert('Reservation saved!');
+    // Redirection vers la page de confirmation
+    navigate('/confirmation');
   };
 
   return (
     <div className="booking-container">
+
       <div className="booking-header">
         <h1>Reservation</h1>
       </div>

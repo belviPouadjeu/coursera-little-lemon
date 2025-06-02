@@ -17,6 +17,7 @@ import OrderOnline from './pages/OrderOnline';
 import Reservation from './pages/Reservation';
 import Nav from './pages/Nav';
 import Footer from './pages/Footer';
+import ConfirmationPage from './pages/ConfirmationPage';
 //import { useEffect } from 'react';
 
 /**
@@ -43,6 +44,7 @@ function Layout() {
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/orderOnline" element={<OrderOnline />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} />
       </Routes>
       {!hideFooter && <Footer />}
     </>
