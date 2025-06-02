@@ -12,8 +12,11 @@ const HeroSection = () => {
                     We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
                 </p>
                 <div className='hero-button'>
-                    <Link to='/reservations' className={({ isActive }) => isActive ? "active-link" : ""}>Reserve a Table</Link>
+                    <Link to='/reservations'>
+                        Reserve a Table
+                    </Link>
                 </div>
+
             </div>
 
             <div className='hero-image'>
